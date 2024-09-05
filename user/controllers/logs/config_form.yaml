@@ -1,0 +1,15 @@
+modelClass: AppUser\User\Models\Log
+
+form:
+    fields:
+        description:
+            label: Description
+            span: full
+        user:
+            label: User
+            type: relation
+            span: left
+        has_delay:
+            label: Delay
+            type: switch
+            span: right

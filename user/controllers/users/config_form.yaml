@@ -1,0 +1,32 @@
+modelClass: AppUser\User\Models\User
+
+form:
+    fields:
+        username:
+            label: Username
+            span: left
+        password:
+            label: Password
+            type: password
+            span: right
+            commentAbove: "Leave blank if you don't want to change the password"
+            attributes:
+                autocomplete: new-password
+        token:
+            label: Token
+            type: text
+            span: full
+            readOnly: true
+            hidden: true # Hide the token field if not necessary for editing
+        created_at:
+            label: Created At
+            type: datepicker
+            span: left
+            readOnly: true
+            format: 'Y-m-d H:i:s'
+        updated_at:
+            label: Updated At
+            type: datepicker
+            span: right
+            readOnly: true
+            format: 'Y-m-d H:i:s'

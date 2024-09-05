@@ -1,0 +1,22 @@
+modelClass: AppUser\User\Models\User
+
+list:
+    columns:
+        id:
+            label: ID
+            type: number
+        username:
+            label: Username
+        created_at:
+            label: Created At
+            type: datetime
+        updated_at:
+            label: Updated At
+            type: datetime
+
+    # default sort to the 'id' to avoid errors
+    defaultSort:
+        column: id
+        direction: desc
+
+    recordUrl: 'appuser/user/users/update/:id'

@@ -1,0 +1,12 @@
+modelClass: AppUser\User\Models\Log
+
+list:
+    columns:
+        description:
+            label: Description
+        user:
+            label: User
+            relation: user
+        has_delay:
+            label: Delay
+            type: switch
