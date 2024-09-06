@@ -6,8 +6,10 @@ columns:
         label: Description
         type: text
     user_id:
-        label: User ID
-        type: number
+        label: User
+        type: text
+        relation: user
+        select: 'username'
     has_delay:
         label: Delay 
         type: switch

@@ -26,6 +26,6 @@ class User extends Model
     }
 
     public $hasMany = [
-        'logs' => 'AppUser\User\Models\Log',
+        'logs' => ['AppUser\User\Models\Log', 'key' => 'user_id', 'otherKey' => 'id']
     ];
 }

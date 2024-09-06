@@ -4,18 +4,23 @@ fields:
         type: textarea
         span: full
     user_id:
-        label: User ID
-        type: number
+        label: User
+        type: recordfinder
         span: left
-        commentAbove: "Enter the User ID associated with this log"
+        prompt: "Select a user"
+        valueFrom: 'user'
+        modelClass: 'AppUser\User\Models\User'
+        nameFrom: 'username'
+        search: 'username'
+        commentAbove: "Select the user associated with this log"
     arrival_time:
         label: Arrival Time
         type: text
         span: right
-        placeholder: '08:30'
+        placeholder: '08:30' 
         attributes:
             type: time
-        comment: "Enter time in H:i format, e.g., 08:30"
+        comment: "Enter time in H:i format (e.g., 08:30)"
     has_delay:
         label: Delay (minutes)
         type: switch

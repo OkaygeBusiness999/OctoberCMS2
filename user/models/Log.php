@@ -19,8 +19,9 @@ class Log extends Model
     ];
 
     public $belongsTo = [
-        'user' => ['AppUser\User\Models\User', 'key' => 'user_id'],
+        'user' => ['AppUser\User\Models\User', 'key' => 'user_id']
     ];
+
 
     public function beforeSave()
     {
