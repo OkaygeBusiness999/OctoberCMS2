@@ -1,8 +1,30 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
-
 fields:
-    id:
-        label: ID
-        disabled: true
+    username:
+        label: Username
+        type: text
+        span: left
+        required: true
+    password:
+        label: Password
+        type: password
+        span: right
+        required: true
+        commentAbove: "Leave blank if you don't want to change the password"
+        attributes:
+            autocomplete: new-password
+    token:
+        label: Token
+        type: text
+        span: full
+        readOnly: true
+        hidden: true
+    created_at:
+        label: Created At
+        type: datepicker
+        span: left
+        readOnly: true
+    updated_at:
+        label: Updated At
+        type: datepicker
+        span: right
+        readOnly: true

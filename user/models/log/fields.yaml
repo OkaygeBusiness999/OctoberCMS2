@@ -1,8 +1,32 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
-
 fields:
-    id:
-        label: ID
-        disabled: true
+    description:
+        label: Description
+        type: textarea
+        span: full
+    user_id:
+        label: User ID
+        type: number
+        span: left
+        commentAbove: "Enter the User ID associated with this log"
+    arrival_time:
+        label: Arrival Time
+        type: text
+        span: right
+        placeholder: '08:30'
+        attributes:
+            type: time
+        comment: "Enter time in H:i format, e.g., 08:30"
+    has_delay:
+        label: Delay (minutes)
+        type: switch
+        span: left
+        comment: "Toggle if there was a delay in arrival"
+    log_status:
+        label: Status
+        type: dropdown
+        span: right
+        readOnly: true
+        options:
+            on time with delay: On Time with Delay
+            late: Late
+            absent: Absent

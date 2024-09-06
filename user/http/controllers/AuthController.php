@@ -1,6 +1,6 @@
 <?php namespace AppUser\User\Http\Controllers;
 
-use Illuminate\Routing\Controller; // Correctly import the base Controller class
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use AppUser\User\Models\User;
 use AppUser\User\Classes\Services\AuthService;
@@ -9,13 +9,11 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        // Validate input
         $request->validate([
             'username' => 'required|unique:appuser_user_users',
             'password' => 'required|min:8',
         ]);
 
-        // Create the user
         $user = User::create([
             'username' => $request->input('username'),
             'password' => AuthService::hashPassword($request->input('password')),
@@ -27,16 +25,13 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        // Validate login data
         $request->validate([
             'username' => 'required',
             'password' => 'required',
         ]);
 
-        // Attempt to fetch the user
         $user = User::where('username', $request->input('username'))->first();
 
-        // Check if the user exists and the password is correct
         if ($user && password_verify($request->input('password'), $user->password)) {
             // Return the user's token
             return response()->json(['token' => $user->token]);
@@ -45,7 +40,6 @@ class AuthController extends Controller
         return response()->json(['error' => 'Invalid credentials'], 401);
     }
 
-        // Logout method
         public function logout(Request $request)
         {
             $token = $request->bearerToken();

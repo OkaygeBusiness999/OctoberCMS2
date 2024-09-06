@@ -1,38 +1,42 @@
 <?php namespace AppUser\User\Controllers;
 
-use Backend\Classes\Controller;
 use BackendMenu;
-use Flash;
-use AppUser\User\Models\Log;
+use Backend\Classes\Controller;
 
+/**
+ * Logs Backend Controller
+ *
+ * @link https://docs.octobercms.com/3.x/extend/system/controllers.html
+ */
 class Logs extends Controller
 {
     public $implement = [
-        \Backend\Behaviors\ListController::class,
         \Backend\Behaviors\FormController::class,
+        \Backend\Behaviors\ListController::class,
     ];
 
-    public $listConfig = 'config_list.yaml';
+    /**
+     * @var string formConfig file
+     */
     public $formConfig = 'config_form.yaml';
 
+    /**
+     * @var string listConfig file
+     */
+    public $listConfig = 'config_list.yaml';
+
+    /**
+     * @var array required permissions
+     */
+    public $requiredPermissions = ['appuser.user.logs'];
+
+    /**
+     * __construct the controller
+     */
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('AppUser.User', 'log', 'logs');
-    }
 
-    // update delay status
-    public function onToggleDelay($recordId)
-    {
-        $log = Log::find($recordId);
-        if ($log) {
-            $log->has_delay = !$log->has_delay;
-            $log->save();
-            Flash::success('Log delay status updated successfully!');
-        } else {
-            Flash::error('Log not found.');
-        }
-
-        return $this->listRefresh();
+        BackendMenu::setContext('AppUser.User', 'user', 'logs');
     }
 }

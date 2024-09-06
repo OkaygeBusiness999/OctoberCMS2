@@ -11,15 +11,10 @@ Route::group(['prefix' => 'api/v1'], function () {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class, 'logout'])->middleware('auth.token');
 
-    // Route to get logs of the authenticated user
-    Route::get('logs', function (Request $request) {
-        $user = AuthService::getAuthenticatedUser($request->bearerToken());
-        
-        if ($user) {
-            // Return logs only for the authenticated user
-            return Log::where('user_id', $user->id)->get();
-        }
-
-        return response()->json(['error' => 'Unauthorized'], 401);
-    })->middleware('auth.token');
+    Route::middleware(['auth.token'])->group(function () {
+        Route::get('logs', function () {
+            $user = request()->get('user');
+            return $user->logs; // Return only logs of the authenticated user
+        });
+    });
 });

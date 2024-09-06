@@ -3,3 +3,9 @@ v1.0.1: first version
 v1.0.2:
     - 2024_09_05_210849_create_users_table.php
     - 2024_09_05_210857_create_logs_table.php
+
+v1.0.3:
+  - 2024_09_06_101729_add_arrival_time_to_logs_table.php
+
+v1.0.4:
+    - 2024_09_06_104827_add_log_status_to_appuser_user_logs_table.php

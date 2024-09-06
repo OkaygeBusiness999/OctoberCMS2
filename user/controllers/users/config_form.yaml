@@ -1,32 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: User
+
+# Model Form Field configuration
+form: $/appuser/user/models/user/fields.yaml
+
+# Model Class name
 modelClass: AppUser\User\Models\User
 
-form:
-    fields:
-        username:
-            label: Username
-            span: left
-        password:
-            label: Password
-            type: password
-            span: right
-            commentAbove: "Leave blank if you don't want to change the password"
-            attributes:
-                autocomplete: new-password
-        token:
-            label: Token
-            type: text
-            span: full
-            readOnly: true
-            hidden: true # Hide the token field if not necessary for editing
-        created_at:
-            label: Created At
-            type: datepicker
-            span: left
-            readOnly: true
-            format: 'Y-m-d H:i:s'
-        updated_at:
-            label: Updated At
-            type: datepicker
-            span: right
-            readOnly: true
-            format: 'Y-m-d H:i:s'
+# Default redirect location
+defaultRedirect: appuser/user/users
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: appuser/user/users/update/:id
+    redirectClose: appuser/user/users
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: appuser/user/users
+    redirectClose: appuser/user/users
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

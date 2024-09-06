@@ -1,15 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Log
+
+# Model Form Field configuration
+form: $/appuser/user/models/log/fields.yaml
+
+# Model Class name
 modelClass: AppUser\User\Models\Log
 
-form:
-    fields:
-        description:
-            label: Description
-            span: full
-        user:
-            label: User
-            type: relation
-            span: left
-        has_delay:
-            label: Delay
-            type: switch
-            span: right
+# Default redirect location
+defaultRedirect: appuser/user/logs
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: appuser/user/logs/update/:id
+    redirectClose: appuser/user/logs
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: appuser/user/logs
+    redirectClose: appuser/user/logs
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

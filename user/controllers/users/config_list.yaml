@@ -1,22 +1,47 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: $/appuser/user/models/user/columns.yaml
+
+# Model Class name
 modelClass: AppUser\User\Models\User
 
-list:
-    columns:
-        id:
-            label: ID
-            type: number
-        username:
-            label: Username
-        created_at:
-            label: Created At
-            type: datetime
-        updated_at:
-            label: Updated At
-            type: datetime
+# List Title
+title: Manage Users
 
-    # default sort to the 'id' to avoid errors
-    defaultSort:
-        column: id
-        direction: desc
+# Link URL for each record
+recordUrl: appuser/user/users/update/:id
 
-    recordUrl: 'appuser/user/users/update/:id'
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Records to display per page
+recordsPerPage: 20
+
+# Display page numbers with pagination, disable to improve performance
+showPageNumbers: true
+
+# Displays the list column set up button
+showSetup: true
+
+# Displays the sorting link on each column
+showSorting: true
+
+# Default sorting column
+defaultSort:
+    column: id
+    direction: asc
+
+# Display checkboxes next to each record
+showCheckboxes: true
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: list_toolbar
+
+    # Search widget configuration
+    search:
+        prompt: backend::lang.list.search_prompt

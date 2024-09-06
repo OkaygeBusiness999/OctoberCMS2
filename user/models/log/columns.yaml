@@ -1,8 +1,21 @@
-# ===================================
-#  List Column Definitions
-# ===================================
-
 columns:
     id:
         label: ID
-        searchable: true
+        type: number
+    description:
+        label: Description
+        type: text
+    user_id:
+        label: User ID
+        type: number
+    has_delay:
+        label: Delay 
+        type: switch
+    arrival_time:
+        label: Arrival Time
+        type: datetime
+        format: 'Y-m-d H:i'
+    log_status:
+        label: Status
+        type: text
+        readOnly: true  

@@ -1,8 +1,21 @@
-# ===================================
-#  List Column Definitions
-# ===================================
-
 columns:
     id:
         label: ID
-        searchable: true
+        type: number
+    username:
+        label: Username
+        type: text
+    created_at:
+        label: Created At
+        type: datetime
+        format: 'Y-m-d H:i'
+    updated_at:
+        label: Updated At
+        type: datetime
+        format: 'Y-m-d H:i'
+
+defaultSort:
+    column: id
+    direction: desc
+
+recordUrl: 'appuser/user/users/update/:id'
